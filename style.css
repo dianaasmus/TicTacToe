@@ -16,22 +16,33 @@ header {
 h1 {
     font-size: 42px;
     margin: 0;
-    color: #fff;
+    color: #33a2c3;
     font-weight: 100;
     text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 21px #fff,
-        0 0 42px #bc13fe,
-        0 0 82px #bc13fe,
-        0 0 92px #bc13fe,
-        0 0 102px #bc13fe,
-        0 0 151px #bc13fe;
+        0 0 7px #313090,
+        0 0 10px #313090,
+        0 0 21px #313090,
+        0 0 42px #313090,
+        0 0 82px #313090,
+        0 0 92px #313090,
+        0 0 102px #313090,
+        0 0 151px #313090;
 }
 
 p {
+    color: white;
     text-align: center;
     padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.players-turn {
+    position: relative;
+    height: 20px;
+    padding-left: 5px;
+    filter: invert(57%) sepia(94%) saturate(375%) hue-rotate(149deg) brightness(82%) contrast(82%);
 }
 
 table {
@@ -45,11 +56,16 @@ table {
 
 td {
     width: 150px;
-    border: 2px solid white;
+    border: 2px solid #33a2c3;
     height: 150px;
-    box-shadow: 0px 0px 20px #bc13fe;   
+    /* box-shadow: 0px 0px 20px rgb(49, 48, 144);    */
     display: inline-flex;
     position: relative;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: rgb(54 49 49 / 50%);
 }
 
 table tr:first-child td {
@@ -74,4 +90,8 @@ table tr td:last-child {
     width: 100px;
     top: 25px;
     left: 25px;
+}
+
+.d-none {
+    display: none;
 }
