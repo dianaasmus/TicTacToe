@@ -52,6 +52,8 @@ p {
 
 /* =================================================== Table */
 table {
+    position: absolute;
+    top: 288px;
     color: white;
     display: flex;
     justify-content: center;
@@ -97,14 +99,20 @@ table tr td:last-child {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 /* ===================================================Line Animation */
+#grid {
+    position: relative;
+    width: 466px;
+}
+
 .horizontal-line {
     position: absolute;
     width: 390px;
     height: 7px;
+    left: 33px;
     background-color: rgb(51, 162, 195);
     box-shadow: 0px 0px 17px 14px rgba(49, 48, 144, 0.5);
     border-radius: 20px;
@@ -114,12 +122,70 @@ table tr td:last-child {
 }
 
 .to-vertical-line {
-    top: 445px;
+    top: 284px;
     transform: rotate(90deg) scale(0.0);
 }
 
 .to-diagonal-line {
-    left: 303px;
-    top: 445px;
+    left: -21px;
+    top: 284.5px;
     width: 500px;
+}
+
+/* =================================================== Game Over */
+.game-over-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+@keyframes zoomIn{
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.game-over-img {
+    height: 200px;
+}
+
+.game-over-p {
+    font-size: 30px;
+    padding: 0;
+}
+
+.winner {
+    position: relative;
+    height: 30px;
+    padding: 0 5px;
+    filter: invert(57%) sepia(94%) saturate(375%) hue-rotate(149deg) brightness(82%) contrast(82%);
+}
+
+#reset {
+    background-color: rgb(221, 74, 219);
+    border: 2px solid rgb(221, 74, 219);
+    border-radius: 10px;
+    height: 60px;
+    width: inherit;
+    font-size: 30px;
+    color: rgb(44, 227, 227);
+    cursor: pointer;
+}
+
+#reset:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
 }

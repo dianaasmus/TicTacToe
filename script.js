@@ -1,10 +1,10 @@
 let fields = [];
-
+let gameOver = false;
 let currentShape = 'cross';
 
 function fillShape(id) {
 
-    if (!fields[id]) {
+    if (!fields[id] && !gameOver) {
         if (currentShape == 'cross') {
             currentShape = 'circle';
             document.getElementById('player-cross').classList.remove('d-none');
@@ -13,11 +13,8 @@ function fillShape(id) {
             currentShape = 'cross';
             document.getElementById('player-circle').classList.remove('d-none');
             document.getElementById('player-cross').classList.add('d-none');
-
         }
-
         fields[id] = currentShape;
-        console.log(fields);
         draw();
     }
 }
@@ -79,6 +76,33 @@ function checkForWin() {
     }
 
     if (!!winner) {
-        console.log('gewonnen:' + winner)
+        gameOver = true;
+
+        setTimeout(function () {
+            if (winner == 'circle') {
+                document.getElementById('game-over').classList.remove('d-none');
+            } else {
+                document.getElementById('game-over').classList.remove('d-none');
+                document.getElementById('player-cross-end').classList.remove('d-none');
+                document.getElementById('player-circle-end').classList.add('d-none');
+            }
+        }, 1000);
     }
+}
+
+
+function restartGame() {
+    document.getElementById('game-over').classList.add('d-none');
+    gameOver = false;
+    fields = [];
+
+    for (let i = 0; i < 8; i++) {
+        document.getElementById('line-' + i).classList.add('d-none');
+    }
+
+    for (let i = 0; i < 9; i++) {
+        document.getElementById('circle-' + i).classList.add('d-none');
+        document.getElementById('cross-' + i).classList.add('d-none');
+    }
+
 }
