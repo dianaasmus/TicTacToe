@@ -1,10 +1,15 @@
+/* =================================================== General */
 body {
+    position: relative;
     margin: 0;
     background-image: url("img/tictactoe-bg.png");
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -14,8 +19,8 @@ header {
 }
 
 h1 {
-    font-size: 42px;
-    margin: 0;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 25px;
     color: #33a2c3;
     font-weight: 100;
     text-shadow:
@@ -26,7 +31,7 @@ h1 {
         0 0 82px #313090,
         0 0 92px #313090,
         0 0 102px #313090,
-        0 0 151px #313090;
+        0 0 151px rgb(49, 48, 144);
 }
 
 p {
@@ -45,6 +50,7 @@ p {
     filter: invert(57%) sepia(94%) saturate(375%) hue-rotate(149deg) brightness(82%) contrast(82%);
 }
 
+/* =================================================== Table */
 table {
     color: white;
     display: flex;
@@ -58,8 +64,6 @@ td {
     width: 150px;
     border: 2px solid #33a2c3;
     height: 150px;
-    /* box-shadow: 0px 0px 20px rgb(49, 48, 144);    */
-    display: inline-flex;
     position: relative;
     cursor: pointer;
 }
@@ -94,4 +98,28 @@ table tr td:last-child {
 
 .d-none {
     display: none;
+}
+
+/* ===================================================Line Animation */
+.horizontal-line {
+    position: absolute;
+    width: 390px;
+    height: 7px;
+    background-color: rgb(51, 162, 195);
+    box-shadow: 0px 0px 17px 14px rgba(49, 48, 144, 0.5);
+    border-radius: 20px;
+    z-index: 1;
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+}
+
+.to-vertical-line {
+    top: 445px;
+    transform: rotate(90deg) scale(0.0);
+}
+
+.to-diagonal-line {
+    left: 303px;
+    top: 445px;
+    width: 500px;
 }

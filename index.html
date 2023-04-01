@@ -8,6 +8,7 @@
     <link rel="icon" href="img/tictactoe-favicon.png">
     <title>TicTacToe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
 </head>
 
@@ -20,6 +21,15 @@
         <img id="player-cross" class="players-turn d-none" src="img/x.png">
         's turn
     </p>
+
+    <div id="line-0" class="horizontal-line" style="top: 290px;"></div>
+    <div id="line-1" class="horizontal-line" style="top: 444px;"></div>
+    <div id="line-2" class="horizontal-line" style="top: 598px;"></div>
+    <div id="line-3" class="horizontal-line to-vertical-line" style="left: 204px;"></div>
+    <div id="line-4" class="horizontal-line to-vertical-line" style="left: 358px;"></div>
+    <div id="line-5" class="horizontal-line to-vertical-line" style="left: 512px;"></div>
+    <div id="line-6" class="horizontal-line to-diagonal-line" style="transform: rotate(45deg) scale(0.0);"></div>
+    <div id="line-7" class="horizontal-line to-diagonal-line" style="transform: rotate(-45deg) scale(0.0);"></div>
     <table>
         <tr>
             <td onclick="fillShape(0)">
@@ -64,6 +74,7 @@
             </td>
         </tr>
     </table>
+ 
 </body>
 
 </html>
