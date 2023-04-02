@@ -1,8 +1,10 @@
 let fields = [];
 let gameOver = false;
 let currentShape = 'cross';
+let moves = 0;
 
 function fillShape(id) {
+    checkMoves();
 
     if (!fields[id] && !gameOver) {
         if (currentShape == 'cross') {
@@ -19,6 +21,14 @@ function fillShape(id) {
     }
 }
 
+function checkMoves() {
+    moves++;
+    if (moves >= 9) {
+        document.getElementById('game-over').classList.remove('d-none');
+        document.getElementById('game-over-p').classList.add('d-none');
+    }
+}
+
 function draw() {
     for (let i = 0; i < fields.length; i++) {
         if (fields[i] == 'circle') {
@@ -28,8 +38,9 @@ function draw() {
         if (fields[i] == 'cross') {
             document.getElementById('cross-' + i).classList.remove('d-none');
         }
+        checkForWin();
     }
-    checkForWin();
+
 }
 
 function checkForWin() {
@@ -81,10 +92,10 @@ function checkForWin() {
         setTimeout(function () {
             if (winner == 'circle') {
                 document.getElementById('game-over').classList.remove('d-none');
+                document.getElementById('player-circle-end').classList.remove('d-none');
             } else {
                 document.getElementById('game-over').classList.remove('d-none');
                 document.getElementById('player-cross-end').classList.remove('d-none');
-                document.getElementById('player-circle-end').classList.add('d-none');
             }
         }, 1000);
     }
@@ -92,17 +103,24 @@ function checkForWin() {
 
 
 function restartGame() {
-    document.getElementById('game-over').classList.add('d-none');
+    resetClassList();
     gameOver = false;
     fields = [];
+    moves = 0;
 
     for (let i = 0; i < 8; i++) {
-        document.getElementById('line-' + i).classList.add('d-none');
+        document.getElementById('line-' + i).style.transform = "scale(0)";
     }
 
     for (let i = 0; i < 9; i++) {
         document.getElementById('circle-' + i).classList.add('d-none');
         document.getElementById('cross-' + i).classList.add('d-none');
     }
+}
 
+function resetClassList() {
+    document.getElementById('game-over').classList.add('d-none');
+    document.getElementById('game-over-p').classList.remove('d-none');
+    document.getElementById('player-cross-end').classList.add('d-none');
+    document.getElementById('player-circle-end').classList.add('d-none');
 }

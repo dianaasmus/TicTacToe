@@ -25,7 +25,7 @@
     <div id="grid">
         <div id="line-0" class="horizontal-line" style="top: 130px;"></div>
         <div id="line-1" class="horizontal-line" style="top: 283px;"></div>
-        <div id="line-2" class="horizontal-line" style="top: 598px;"></div>
+        <div id="line-2" class="horizontal-line" style="top: 436px;"></div>
         <div id="line-3" class="horizontal-line to-vertical-line" style="left: -121px;"></div>
         <div id="line-4" class="horizontal-line to-vertical-line" style="left: 33px;"></div>
         <div id="line-5" class="horizontal-line to-vertical-line" style="left: 188px;"></div>
@@ -78,12 +78,12 @@
     </div>
 
     <div id="game-over" class="d-none game-over-container">
-        <img src="img/game-over.png" class="game-over-img">
-        <p class="game-over-p">
-            PLAYER <img id="player-circle-end" class="winner" src="img/o.png">
+        <p id="game-over-p">
+            PLAYER <img id="player-circle-end" class="winner d-none" src="img/o.png">
             <img id="player-cross-end" class="winner d-none" src="img/x.png">
             WON!
         </p>
+        <img src="img/game-over.png" class="game-over-img">
         <button id="reset" onclick="restartGame()">PLAY AGAIN</button>
     </div>
 
