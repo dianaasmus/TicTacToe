@@ -20,7 +20,7 @@ header {
 
 h1 {
     font-family: 'Press Start 2P', sans-serif;
-    font-size: 35px;
+    font-size: 30px;
     color: #33a2c3;
     font-weight: 100;
     text-shadow:
@@ -38,10 +38,10 @@ p {
     font-size: 1.3rem;
     color: white;
     text-align: center;
-    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0;
 }
 
 .players-turn {
@@ -229,6 +229,10 @@ table tr td:last-child {
     .to.to-diagonal-line {
         width: 352px;
         left: -20px;
+    }
+
+    #line-6 {
+        transform: rotate(-50deg) scale();
     }
 
 
