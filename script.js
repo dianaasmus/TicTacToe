@@ -4,9 +4,9 @@ let currentShape = 'cross';
 let moves = 0;
 
 function fillShape(id) {
-    checkMoves();
-
+    
     if (!fields[id] && !gameOver) {
+        
         if (currentShape == 'cross') {
             currentShape = 'circle';
             document.getElementById('player-cross').classList.remove('d-none');
@@ -19,11 +19,19 @@ function fillShape(id) {
         fields[id] = currentShape;
         draw();
     }
+    checkMoves();
 }
 
 function checkMoves() {
-    moves++;
-    if (moves >= 9) {
+    let moves = 0;
+
+    for (let i = 0; i < fields.length; i++) {
+        if(fields[i] !== undefined) {
+            moves++;
+        }
+    }
+
+    if (moves === 9) {
         document.getElementById('game-over').classList.remove('d-none');
         document.getElementById('game-over-p').classList.add('d-none');
     }
