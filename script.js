@@ -46,6 +46,14 @@ function draw() {
 function checkForWin() {
     let winner;
 
+    if (window.matchMedia('(max-width: 500px)').matches) {
+        document.getElementById('line-0').style.top = '160px';
+        document.getElementById('line-2').style.top = '409px';
+        document.getElementById('line-3').style.left = '-89px';
+        document.getElementById('line-4').style.left = '17px';
+        document.getElementById('line-5').style.left = '120px';
+    }
+
     if (fields[0] == fields[1] && fields[1] == fields[2] && fields[0]) {
         winner = fields[0];
         document.getElementById('line-0').style.transform = "scale(1.0)";
@@ -78,12 +86,20 @@ function checkForWin() {
 
     if (fields[2] == fields[4] && fields[4] == fields[6] && fields[2]) {
         winner = fields[2];
+        if (window.matchMedia('(max-width: 500px)').matches) {
+            document.getElementById('line-6').style.transform = "rotate(-50deg) scale(1.0)";
+        } else {
         document.getElementById('line-6').style.transform = "rotate(-45deg) scale(1.0)";
+        }
     }
 
     if (fields[0] == fields[4] && fields[4] == fields[8] && fields[0]) {
         winner = fields[0];
+        if (window.matchMedia('(max-width: 500px)').matches) {
+            document.getElementById('line-7').style.transform = "rotate(50deg) scale(1.0)";
+        } else {
         document.getElementById('line-7').style.transform = "rotate(45deg) scale(1.0)";
+        }
     }
 
     if (!!winner) {

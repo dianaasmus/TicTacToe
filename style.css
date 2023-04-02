@@ -20,7 +20,7 @@ header {
 
 h1 {
     font-family: 'Press Start 2P', sans-serif;
-    font-size: 25px;
+    font-size: 35px;
     color: #33a2c3;
     font-weight: 100;
     text-shadow:
@@ -35,9 +35,10 @@ h1 {
 }
 
 p {
+    font-size: 1.3rem;
     color: white;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,6 +52,11 @@ p {
 }
 
 /* =================================================== Table */
+#grid {
+    position: relative;
+    width: 466px;
+}
+
 table {
     position: absolute;
     top: 288px;
@@ -103,11 +109,6 @@ table tr td:last-child {
 }
 
 /* ===================================================Line Animation */
-#grid {
-    position: relative;
-    width: 466px;
-}
-
 .horizontal-line {
     position: absolute;
     width: 390px;
@@ -161,9 +162,10 @@ table tr td:last-child {
 
 .game-over-img {
     height: 200px;
+    padding-bottom: 40px;
 }
 
-.game-over-p {
+#game-over-p {
     font-size: 30px;
     padding: 0;
 }
@@ -182,10 +184,66 @@ table tr td:last-child {
     height: 60px;
     width: inherit;
     font-size: 30px;
-    color: rgb(44, 227, 227);
+    color: white;
     cursor: pointer;
 }
 
 #reset:hover {
     background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* =================================================== Responsive */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    #grid {
+        width: 320px;
+    }
+
+    td {
+        width: 100px;
+        height: 120px;
+    }
+
+    .position {
+        height: 80px;
+        width: 80px;
+        top: 21px;
+        left: 12px;
+    }
+
+    
+    .horizontal-line {
+        /* margin-top: 150px; */
+        width: 280px;
+        left: 17px;
+        height: 5px;
+    } 
+
+    .to.to-diagonal-line {
+        width: 352px;
+        left: -20px;
+    }
+
+
+    /* Game Over / End Screen  */
+    #game-over-p {
+        font-size: 20px;
+    }
+
+    .game-over-img {
+        height: 140px;
+    }
+
+    #reset {
+        height: 45px;
+        font-size: 20px;
+
+    }
 }
